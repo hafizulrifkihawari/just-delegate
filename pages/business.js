@@ -1,9 +1,9 @@
 import React from 'react'
-import fetch from 'isomorphic-unfetch'
+import fetch from 'node-fetch'
 import NavbarMenu from '../components/Navbar'
 import Content from '../components/Content'
 
-export default function Business({ businessID, businessSG, businessUS }) {
+function Business({ businessID, businessSG, businessUS }) {
     return (
         <div>
             <NavbarMenu activePage="/business" />
@@ -16,7 +16,7 @@ export default function Business({ businessID, businessSG, businessUS }) {
     )
 }
 
-Business.getInitialProps = async ctx => {
+export async function getServerSideProps(context) {
     const resIDNews = await fetch(process.env.ID_BUSINESS_URL)
     const businessID = await resIDNews.json()
 
@@ -27,8 +27,12 @@ Business.getInitialProps = async ctx => {
     const businessUS = await resUSNews.json()
 
     return {
-        businessID: businessID.articles,
-        businessSG: businessSG.articles,
-        businessUS: businessUS.articles
+        props: {
+            businessID: businessID.articles,
+            businessSG: businessSG.articles,
+            businessUS: businessUS.articles
+        }
     }
 }
+
+export default Business

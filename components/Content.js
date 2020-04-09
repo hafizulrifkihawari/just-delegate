@@ -6,6 +6,7 @@ export default function Content({ ID, SG, US }) {
     return (
         <ReactFullpage
             navigation
+            licenseKey={null}
             render={comp =>
                 <div>
                     <Section news={ID} country="INDONESIA" />

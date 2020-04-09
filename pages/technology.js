@@ -1,9 +1,9 @@
 import React from 'react'
-import fetch from 'isomorphic-unfetch'
+import fetch from 'node-fetch'
 import NavbarMenu from '../components/Navbar'
 import Content from '../components/Content'
 
-export default function Technology({ technologyID, technologySG, technologyUS }) {
+function Technology({ technologyID, technologySG, technologyUS }) {
     return (
         <div>
             <NavbarMenu activePage="/technology" />
@@ -16,7 +16,7 @@ export default function Technology({ technologyID, technologySG, technologyUS })
     )
 }
 
-Technology.getInitialProps = async ctx => {
+export async function getServerSideProps(context) {
     const resIDNews = await fetch(process.env.ID_TECHNOLOGY_URL)
     const technologyID = await resIDNews.json()
 
@@ -27,8 +27,12 @@ Technology.getInitialProps = async ctx => {
     const technologyUS = await resUSNews.json()
 
     return {
-        technologyID: technologyID.articles,
-        technologySG: technologySG.articles,
-        technologyUS: technologyUS.articles
+        props: {
+            technologyID: technologyID.articles,
+            technologySG: technologySG.articles,
+            technologyUS: technologyUS.articles
+        }
     }
 }
+
+export default Technology
