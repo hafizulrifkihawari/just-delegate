@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,700&display=swap');
+
+.carousel {
+    padding-left: 5%;
+    padding-right: 5%;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-100%);
+    width: 100%;
+    height: auto;
+}
+
+.news-content {
+    width: 50%;
+    left: 20%;
+    position: relative;
+    top: 15;
+    transform: translateY(-15%);
+    margin-bottom: 5%;
+    display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+    .news-content {
+        width: 100%;
+    }
+}
+
+.focused-news {
+    width: 65%;
+}
+
+.news-text {
+    padding-left: 3%;
+    min-width: 500px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.news-title {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.no-description {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.news-date {
+    color: #717070;
+    text-align: justify;
+    font-size: 14px;
+}
+
+.news-description {
+    text-align: justify;
+}
+
+.news-link {
+    font-weight: bold;
+}
+
+.carousel-button {
+    background-color: white;
+    color: black;
+    font-size: 25px;
+    margin-top: -50px;
+    border-radius: 80%;
+    transition: 500ms;
+    opacity: 0.7;
+}
+
+.carousel-button:hover {
+    opacity: 1;
+}
+
+.carousel-title {
+    text-align: left;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
