@@ -5,7 +5,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest --verbose",
+    "test:watch": "jest --watchAll --verbose"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
   },
   "dependencies": {
     "@ant-design/icons": "^4.0.5",
@@ -20,5 +28,17 @@
     "react-bootstrap": "^1.0.0",
     "react-dom": "16.13.1",
     "react-items-carousel": "^2.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "babel-jest": "^25.3.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.3.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.13.1"
   }
 }

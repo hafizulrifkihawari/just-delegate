@@ -7,6 +7,7 @@ export default function NewsDetail({ selectedNews }) {
     }
 
     const changeDateFormat = (date) => {
+        date = new Date(date)
         return moment(date).format('MMMM Do YYYY, h:mm:ss a')
     }
 
@@ -26,7 +27,7 @@ export default function NewsDetail({ selectedNews }) {
                 }
                 <a href={selectedNews.url} className="news-link">
                     View more...
-            </a>
+                </a>
             </div>
         </div>
     )
