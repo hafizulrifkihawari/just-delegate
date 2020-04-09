@@ -45,14 +45,16 @@ export default function Carousel({ news }) {
                 >
                     {news.map((el, i) => {
                         return (
-                            <div key={i}>
-                                <img
-                                    onError={loadDefaultImage}
-                                    src={el.urlToImage || '/placeholder.png'}
-                                    style={{ width: '100%', maxHeight: '150px', paddingRight: '10px' }}
-                                    onDragStart={handleOnDragStart}
-                                    onClick={() => selectNews(el, i)}
-                                />
+                            <div key={i} className="clickable">
+                                <div className="img-wrapper">
+                                    <img
+                                        className="img-content"
+                                        onError={loadDefaultImage}
+                                        src={el.urlToImage || '/placeholder.png'}
+                                        onDragStart={handleOnDragStart}
+                                        onClick={() => selectNews(el, i)}
+                                    />
+                                </div>
                                 <p className="carousel-title">{el.title}</p>
                             </div>
                         )

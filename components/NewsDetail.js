@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 
 export default function NewsDetail({ selectedNews }) {
     const loadDefaultImage = (e) => {
@@ -6,11 +7,7 @@ export default function NewsDetail({ selectedNews }) {
     }
 
     const changeDateFormat = (date) => {
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric' };
-
-        if (date) {
-            return new Date(date).toLocaleDateString('en-GB', options)
-        }
+        return moment(date).format('MMMM Do YYYY, h:mm:ss a')
     }
 
     return (
